@@ -1,15 +1,18 @@
 import { Suspense } from "react";
 import RenderRouter from "./routes";
-import "./App.css";
 import { BrowserRouter } from "react-router-dom";
+import { ThemeProvider } from "./components/theme-provider";
+import "./App.css";
 
 function App() {
   return (
-    <BrowserRouter>
-      <Suspense fallback={<div>Loading</div>}>
-        <RenderRouter />
-      </Suspense>
-    </BrowserRouter>
+    <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+      <BrowserRouter>
+        <Suspense fallback={<div>Loading</div>}>
+          <RenderRouter />
+        </Suspense>
+      </BrowserRouter>
+    </ThemeProvider>
   );
 }
 
