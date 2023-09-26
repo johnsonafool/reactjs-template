@@ -1,11 +1,13 @@
 import { useTheme } from "@/hooks/use-theme";
+import { useTranslation } from "react-i18next";
 
 export default function FooPage() {
   const { setTheme } = useTheme();
+  const { t } = useTranslation();
 
   return (
     <div>
-      <h1>Foo</h1>
+      <h1>{t("lang")}</h1>
       <button
         onClick={() => {
           setTheme("light");
